@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ColaProject.Models.Kiosks>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KioskCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StreetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoolerStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockDoor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LockWindow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Electricity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedByNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KioskStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KioskType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Operator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supervioser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedByNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KioskCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoolerStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockDoor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockWindow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Electricity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByNavigation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KioskStatus.StatusCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KioskType.KioskTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operator.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supervioser.SuperviserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedByNavigation.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.KioskId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.KioskId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.KioskId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
