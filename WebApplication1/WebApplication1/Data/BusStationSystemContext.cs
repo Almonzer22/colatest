@@ -37,7 +37,8 @@ namespace ColaProject.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-               // optionsBuilder.UseSqlServer("Data Source=Localhost;Database=BusStationSystem;Trusted_Connection=True;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Data Source=APR-ICT-14;Database=BusStationSystem;Trusted_Connection=True;");
             }
         }
 
