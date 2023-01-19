@@ -79,7 +79,7 @@ namespace ColaProject.Controllers
             ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
-            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SupervioserId);
+            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
             return View(kiosks);
         }
@@ -101,7 +101,7 @@ namespace ColaProject.Controllers
             ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
-            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SupervioserId);
+            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
             return View(kiosks);
         }
@@ -142,7 +142,7 @@ namespace ColaProject.Controllers
             ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
-            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SupervioserId);
+            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
             return View(kiosks);
         }

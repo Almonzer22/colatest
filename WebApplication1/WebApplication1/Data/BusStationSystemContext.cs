@@ -82,7 +82,7 @@ namespace ColaProject.Data
 
                 entity.HasOne(d => d.Supervioser)
                     .WithMany(p => p.Kiosks)
-                    .HasForeignKey(d => d.SupervioserId)
+                    .HasForeignKey(d => d.SuperviserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Kiosks_Supervisers");
 

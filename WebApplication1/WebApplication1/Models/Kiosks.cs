@@ -26,8 +26,8 @@ namespace ColaProject.Models
         public int StreetId { get; set; }
         [Column("OperatorID")]
         public int OperatorId { get; set; }
-        [Column("SupervioserID")]
-        public int SupervioserId { get; set; }
+        [Column("SuperviserID")]
+        public int SuperviserId { get; set; }
         [Column("KioskTypeID")]
         public int? KioskTypeId { get; set; }
         [Column("KioskStatusID")]
@@ -59,7 +59,7 @@ namespace ColaProject.Models
         [ForeignKey(nameof(OperatorId))]
         [InverseProperty(nameof(Operators.Kiosks))]
         public virtual Operators Operator { get; set; }
-        [ForeignKey(nameof(SupervioserId))]
+        [ForeignKey(nameof(SuperviserId))]
         [InverseProperty(nameof(Supervisers.Kiosks))]
         public virtual Supervisers Supervioser { get; set; }
         [ForeignKey(nameof(UpdatedBy))]
