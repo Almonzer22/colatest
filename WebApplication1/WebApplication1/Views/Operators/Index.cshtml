@@ -4,73 +4,75 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="content">
-    <h2>Operator</h2>
+<div class="container flex-column justify-content-center align-items-center pt-2">
+    <section class="content">
+        <h2>Operator</h2>
 
-    <p>
-        <a href="/Operator/Create" class="btn btn-success">
-            <i class="fa fa-plus"></i> Add New
-        </a>
-    </p>
+        <p>
+            <a href="/Operator/Create" class="btn btn-success">
+                <i class="fa fa-plus"></i> Add New
+            </a>
+        </p>
 
-    <div class="card">
-        <!-- /.card-header -->
-        <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-
-                        <th>Operator Name</th>
-                        <th>Address</th>
-                        <th>Status</th>
-                        
-
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+        <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
                         <tr>
 
-                            <td>@Html.DisplayFor(modelItem => item.OperatorName)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
-                            <td>@Html.DisplayFor(modelItem => item.OperatorStatus)</td>
-                            
+                            <th>Operator Name</th>
+                            <th>Address</th>
+                            <th>Status</th>
 
-                            <td>
-                                <div class="btn-group btn-group-sm">
-                                    <a asp-action="Edit" asp-route-id="@item.OperatorId" class="btn btn-warning" title="Edit">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                </div>
-                            </td>
+
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>@Html.DisplayFor(modelItem => item.OperatorName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                <td>@Html.DisplayFor(modelItem => item.OperatorStatus)</td>
+
+
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-action="Edit" asp-route-id="@item.OperatorId" class="btn btn-warning" title="Edit">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+        <!-- /.card -->
 
-</section>
+    </section>
+</div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+        <script type="text/javascript">
+            $(function () {
+                $("#example1").DataTable({
+                    "responsive": true,
+                    "lengthChange": false,
+                    "autoWidth": false,
+                    "paging": true,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            });
+
+        </script>
     }
-    <script type="text/javascript">
-    $(function () {
-        $("#example1").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "paging": true,
-            "buttons": ["copy", "csv", "excel", "pdf", "print"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    });
-
-    </script>
-}
 
