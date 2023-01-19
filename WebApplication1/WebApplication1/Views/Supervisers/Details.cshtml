@@ -4,63 +4,65 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+    <div class="container flex-column justify-content-center align-items-center pt-2">
+        <h1>Details</h1>
 
-<div>
-    <h4>Supervisers</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SuperviserName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SuperviserName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserPassword)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserPassword)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SuperviserStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SuperviserStatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedByNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedByNavigation.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedByNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedByNavigation.Name)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.SuperviserId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        <div>
+            <h4>Supervisers</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SuperviserName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SuperviserName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.UserName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.UserPassword)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UserPassword)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SuperviserStatus)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SuperviserStatus)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UpdatedDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CreatedByNavigation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CreatedByNavigation.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.UpdatedByNavigation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.UpdatedByNavigation.Name)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.SuperviserId">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+        </div>

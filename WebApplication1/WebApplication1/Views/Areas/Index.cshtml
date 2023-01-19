@@ -3,58 +3,58 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container flex-column justify-content-center align-items-center pt-2" >
+    <div class="container flex-column justify-content-center align-items-center pt-2">
 
-    <section class="content">
-        <h2>Areas</h2>
+        <section class="content">
+            <h2>Areas</h2>
 
-        <p>
-            <a href="/Areas/Create" class="btn btn-success">
-                <i class="fa fa-plus"></i> Add New
-            </a>
-        </p>
-        <div class="card">
-            <!-- /.card-header -->
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Area ID</th>
-                            <th>Area Name</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+            <p>
+                <a href="/Areas/Create" class="btn btn-success">
+                    <i class="fa fa-plus"></i> Add New
+                </a>
+            </p>
+            <div class="card">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
                             <tr>
-                                <td>@Html.DisplayFor(modelItem => item.AreaId)</td>
-                                <td>@Html.DisplayFor(modelItem => item.AreaName)</td>
-                                <td>
-                                    <div class="align-items-center">
-                                        <a asp-action="Edit" asp-route-id="@item.AreaId" class="btn btn-warning" title="Edit">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        
-                                        <a asp-action="Details" asp-route-id="@item.AreaId" class="btn btn-primary" title="View">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a asp-action="Delete" asp-route-id="@item.AreaId" class="btn btn-danger" title="Remove">
-                                            <i class="fa fa-ban"></i>
-                                        </a>
-                                    </div>
-                                </td>
+                                <th>Area ID</th>
+                                <th>Area Name</th>
+                                <th></th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.AreaId)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.AreaName)</td>
+                                    <td>
+                                        <div class="align-items-center">
+                                            <a asp-action="Edit" asp-route-id="@item.AreaId" class="btn btn-warning" title="Edit">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+
+                                            <a asp-action="Details" asp-route-id="@item.AreaId" class="btn btn-primary" title="View">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@item.AreaId" class="btn btn-danger" title="Remove">
+                                                <i class="fa fa-ban"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+            <!-- /.card -->
 
-    </section>
-
+        </section>
+    </div>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
@@ -73,7 +73,7 @@
 
     </script>
 }
-</div>
+
 
 
 
