@@ -31,15 +31,16 @@
                                 <td>@Html.DisplayFor(modelItem => item.AreaId)</td>
                                 <td>@Html.DisplayFor(modelItem => item.AreaName)</td>
                                 <td>
-                                    <div class="btn-group btn-group-sm">
+                                    <div class="align-items-center">
                                         <a asp-action="Edit" asp-route-id="@item.AreaId" class="btn btn-warning" title="Edit">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a asp-action="Edit" asp-route-id="@item.AreaId" class="btn btn-warning" title="Edit">
-                                            <i class="fa fa-edit"></i>
+                                        
+                                        <a asp-action="Details" asp-route-id="@item.AreaId" class="btn btn-primary" title="View">
+                                            <i class="fa fa-eye"></i>
                                         </a>
-                                        <a asp-action="Edit" asp-route-id="@item.AreaId" class="btn btn-warning" title="Edit">
-                                            <i class="fa fa-edit"></i>
+                                        <a asp-action="Delete" asp-route-id="@item.AreaId" class="btn btn-danger" title="Remove">
+                                            <i class="fa fa-ban"></i>
                                         </a>
                                     </div>
                                 </td>
