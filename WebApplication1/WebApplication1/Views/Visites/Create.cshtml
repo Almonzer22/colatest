@@ -1,0 +1,75 @@
+﻿@model ColaProject.Models.Visites
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Visites</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VisiteId" class="control-label"></label>
+                <input asp-for="VisiteId" class="form-control" />
+                <span asp-validation-for="VisiteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KioskId" class="control-label"></label>
+                <select asp-for="KioskId" class ="form-control" asp-items="ViewBag.KioskId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SuperviserId" class="control-label"></label>
+                <select asp-for="SuperviserId" class ="form-control" asp-items="ViewBag.SuperviserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperatorId" class="control-label"></label>
+                <select asp-for="OperatorId" class ="form-control" asp-items="ViewBag.OperatorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisiteDate" class="control-label"></label>
+                <input asp-for="VisiteDate" class="form-control" />
+                <span asp-validation-for="VisiteDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitStatuse" class="control-label"></label>
+                <input asp-for="VisitStatuse" class="form-control" />
+                <span asp-validation-for="VisitStatuse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clean" class="control-label"></label>
+                <input asp-for="Clean" class="form-control" />
+                <span asp-validation-for="Clean" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recommendation" class="control-label"></label>
+                <input asp-for="Recommendation" class="form-control" />
+                <span asp-validation-for="Recommendation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagePath" class="control-label"></label>
+                <input asp-for="ImagePath" class="form-control" />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

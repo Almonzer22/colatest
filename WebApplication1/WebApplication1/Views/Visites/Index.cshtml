@@ -1,14 +1,14 @@
-﻿@model IEnumerable<ColaProject.Models.Kiosks>
+﻿@model IEnumerable<ColaProject.Models.Visites>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="content">
-    <h2>Kiosks</h2>
+    <h2>Visites</h2>
 
     <p>
-        <a href="/Kiosks/Create" class="btn btn-success">
+        <a href="/Visites/Create" class="btn btn-success">
             <i class="fa fa-plus"></i> Add New
         </a>
     </p>
@@ -19,11 +19,12 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        
+
+                        <th>Visite Number</th>
                         <th>Kiosk Code</th>
-                        <th>Operator</th>
-                        <th>Status</th>
-                        
+                        <th>Superviser</th>
+                        <th>Date</th>
+
                         <th></th>
                     </tr>
                 </thead>
@@ -31,14 +32,15 @@
                     @foreach (var item in Model)
                     {
                     <tr>
-                        
-                        <td>@Html.DisplayFor(modelItem => item.KioskCode)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Operator)</td>
-                        <td>@Html.DisplayFor(modelItem => item.CoolerStatus)</td>
-                        
+
+                        <td>@Html.DisplayFor(modelItem => item.VisiteId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Kiosk)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Superviser)</td>
+                        <td>@Html.DisplayFor(modelItem => item.VisiteDate)</td>
+
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <a asp-action="Edit" asp-route-id="@item.KioskId" class="btn btn-warning" title="Edit">
+                                <a asp-action="Edit" asp-route-id="@item.VisiteId" class="btn btn-warning" title="Edit">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </div>

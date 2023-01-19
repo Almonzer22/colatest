@@ -1,14 +1,14 @@
-﻿@model IEnumerable<ColaProject.Models.Kiosks>
+﻿@model IEnumerable<ColaProject.Models.Operators>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="content">
-    <h2>Kiosks</h2>
+    <h2>Operator</h2>
 
     <p>
-        <a href="/Kiosks/Create" class="btn btn-success">
+        <a href="/Operator/Create" class="btn btn-success">
             <i class="fa fa-plus"></i> Add New
         </a>
     </p>
@@ -19,31 +19,33 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        
-                        <th>Kiosk Code</th>
-                        <th>Operator</th>
+
+                        <th>Operator Name</th>
+                        <th>Address</th>
                         <th>Status</th>
                         
+
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        
-                        <td>@Html.DisplayFor(modelItem => item.KioskCode)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Operator)</td>
-                        <td>@Html.DisplayFor(modelItem => item.CoolerStatus)</td>
-                        
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <a asp-action="Edit" asp-route-id="@item.KioskId" class="btn btn-warning" title="Edit">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+
+                            <td>@Html.DisplayFor(modelItem => item.OperatorName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                            <td>@Html.DisplayFor(modelItem => item.OperatorStatus)</td>
+                            
+
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <a asp-action="Edit" asp-route-id="@item.OperatorId" class="btn btn-warning" title="Edit">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
