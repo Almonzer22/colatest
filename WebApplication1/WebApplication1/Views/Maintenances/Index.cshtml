@@ -1,14 +1,14 @@
-﻿@model IEnumerable<ColaProject.Models.Kiosks>
+﻿@model IEnumerable<ColaProject.Models.Maintenance>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <section class="content">
-    <h2>Kiosks</h2>
+    <h2>Maintenance</h2>
 
     <p>
-        <a href="/Kiosks/Create" class="btn btn-success">
+        <a href="/Maintenances/Create" class="btn btn-success">
             <i class="fa fa-plus"></i> Add New
         </a>
     </p>
@@ -19,31 +19,33 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        
+
+                        <th>Maintenance Number</th>
                         <th>Kiosk Code</th>
-                        <th>Operator</th>
                         <th>Status</th>
-                        
+
+
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        
-                        <td>@Html.DisplayFor(modelItem => item.KioskCode)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Operator)</td>
-                        <td>@Html.DisplayFor(modelItem => item.CoolerStatus)</td>
-                        
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <a asp-action="Edit" asp-route-id="@item.KioskId" class="btn btn-warning" title="Edit">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+
+                            <td>@Html.DisplayFor(modelItem => item.MaintenanceProcessId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.KioskCode)</td>
+                            <td>@Html.DisplayFor(modelItem => item.MaintenanceStatus)</td>
+
+
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <a asp-action="Edit" asp-route-id="@item.MaintenanceProcessId" class="btn btn-warning" title="Edit">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
