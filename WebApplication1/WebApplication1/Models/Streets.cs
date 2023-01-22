@@ -11,6 +11,11 @@ namespace ColaProject.Models
 {
     public partial class Streets
     {
+        public Streets()
+        {
+            Kiosks = new HashSet<Kiosks>();
+        }
+
         [Key]
         [Column("StreetID")]
         public int StreetId { get; set; }
@@ -26,5 +31,7 @@ namespace ColaProject.Models
         [ForeignKey(nameof(AreaId))]
         [InverseProperty(nameof(Areas.Streets))]
         public virtual Areas Area { get; set; }
+        [InverseProperty("Street")]
+        public virtual ICollection<Kiosks> Kiosks { get; set; }
     }
 }

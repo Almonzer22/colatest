@@ -37,8 +37,7 @@ namespace ColaProject.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=APR-ICT-14;Database=BusStationSystem;Trusted_Connection=True;");
+
             }
         }
 
@@ -80,7 +79,13 @@ namespace ColaProject.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Kiosks_Operators");
 
-                entity.HasOne(d => d.Supervioser)
+                entity.HasOne(d => d.Street)
+                    .WithMany(p => p.Kiosks)
+                    .HasForeignKey(d => d.StreetId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Kiosks_Streets");
+
+                entity.HasOne(d => d.Superviser)
                     .WithMany(p => p.Kiosks)
                     .HasForeignKey(d => d.SuperviserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)

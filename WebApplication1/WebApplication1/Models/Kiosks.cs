@@ -59,9 +59,12 @@ namespace ColaProject.Models
         [ForeignKey(nameof(OperatorId))]
         [InverseProperty(nameof(Operators.Kiosks))]
         public virtual Operators Operator { get; set; }
+        [ForeignKey(nameof(StreetId))]
+        [InverseProperty(nameof(Streets.Kiosks))]
+        public virtual Streets Street { get; set; }
         [ForeignKey(nameof(SuperviserId))]
         [InverseProperty(nameof(Supervisers.Kiosks))]
-        public virtual Supervisers Supervioser { get; set; }
+        public virtual Supervisers Superviser { get; set; }
         [ForeignKey(nameof(UpdatedBy))]
         [InverseProperty(nameof(Users.KiosksUpdatedByNavigation))]
         public virtual Users UpdatedByNavigation { get; set; }

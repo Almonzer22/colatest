@@ -43,7 +43,7 @@ namespace ColaProject.Models
         [ForeignKey(nameof(UpdatedBy))]
         [InverseProperty(nameof(Users.SupervisersUpdatedByNavigation))]
         public virtual Users UpdatedByNavigation { get; set; }
-        [InverseProperty("Supervioser")]
+        [InverseProperty("Superviser")]
         public virtual ICollection<Kiosks> Kiosks { get; set; }
         [InverseProperty("Superviser")]
         public virtual ICollection<Visites> Visites { get; set; }

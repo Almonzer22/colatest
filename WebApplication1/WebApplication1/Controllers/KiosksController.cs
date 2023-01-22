@@ -22,7 +22,7 @@ namespace ColaProject.Controllers
         // GET: Kiosks
         public async Task<IActionResult> Index()
         {
-            var busStationSystemContext = _context.Kiosks.Include(k => k.CreatedByNavigation).Include(k => k.KioskStatus).Include(k => k.KioskType).Include(k => k.Operator).Include(k => k.Supervioser).Include(k => k.UpdatedByNavigation);
+            var busStationSystemContext = _context.Kiosks.Include(k => k.CreatedByNavigation).Include(k => k.KioskStatus).Include(k => k.KioskType).Include(k => k.Operator).Include(k => k.Superviser).Include(k => k.UpdatedByNavigation).Include(k =>k.Street);
             return View(await busStationSystemContext.ToListAsync());
         }
 
@@ -39,8 +39,9 @@ namespace ColaProject.Controllers
                 .Include(k => k.KioskStatus)
                 .Include(k => k.KioskType)
                 .Include(k => k.Operator)
-                .Include(k => k.Supervioser)
+                .Include(k => k.Superviser)
                 .Include(k => k.UpdatedByNavigation)
+                .Include(k => k.Street) 
                 .FirstOrDefaultAsync(m => m.KioskId == id);
             if (kiosks == null)
             {
@@ -53,12 +54,13 @@ namespace ColaProject.Controllers
         // GET: Kiosks/Create
         public IActionResult Create()
         {
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name");
-            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode");
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName");
+            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "IsActive");
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName");
-            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address");
-            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName");
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name");
+            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "OperatorName");
+            ViewData["SuperviserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName");
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName");
+            ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName");
             return View();
         }
 
@@ -81,6 +83,7 @@ namespace ColaProject.Controllers
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
             ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
+            ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName");
             return View(kiosks);
         }
 
@@ -101,8 +104,9 @@ namespace ColaProject.Controllers
             ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
-            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
+            ViewData["SuperviserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
+            ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName", kiosks.StreetId);
             return View(kiosks);
         }
 
@@ -111,7 +115,7 @@ namespace ColaProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("KioskId,KioskCode,StreetId,OperatorId,SupervioserId,KioskTypeId,KioskStatusId,CoolerStatus,LockDoor,LockWindow,Electricity,CreatedBy,UpdatedBy,CreateDate,UpdateDate")] Kiosks kiosks)
+        public async Task<IActionResult> Edit(int id, [Bind("KioskId,KioskCode,StreetId,OperatorId,SuperviserId,KioskTypeId,KioskStatusId,CoolerStatus,LockDoor,LockWindow,Electricity,CreatedBy,UpdatedBy,CreateDate,UpdateDate")] Kiosks kiosks)
         {
             if (id != kiosks.KioskId)
             {
@@ -142,8 +146,9 @@ namespace ColaProject.Controllers
             ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
-            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
+            ViewData["SuperviserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
+            ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName");
             return View(kiosks);
         }
 
@@ -160,8 +165,9 @@ namespace ColaProject.Controllers
                 .Include(k => k.KioskStatus)
                 .Include(k => k.KioskType)
                 .Include(k => k.Operator)
-                .Include(k => k.Supervioser)
+                .Include(k => k.Superviser)
                 .Include(k => k.UpdatedByNavigation)
+                 .Include(k => k.Street)
                 .FirstOrDefaultAsync(m => m.KioskId == id);
             if (kiosks == null)
             {
