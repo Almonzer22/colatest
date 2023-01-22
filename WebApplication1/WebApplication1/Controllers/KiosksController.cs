@@ -55,7 +55,7 @@ namespace ColaProject.Controllers
         public IActionResult Create()
         {
             ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName");
-            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "IsActive");
+            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "KioskStatusId", "StatusName");
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName");
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "OperatorName");
             ViewData["SuperviserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName");
@@ -69,7 +69,7 @@ namespace ColaProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("KioskId,KioskCode,StreetId,OperatorId,SupervioserId,KioskTypeId,KioskStatusId,CoolerStatus,LockDoor,LockWindow,Electricity,CreatedBy,UpdatedBy,CreateDate,UpdateDate")] Kiosks kiosks)
+        public async Task<IActionResult> Create([Bind("KioskId,KioskCode,StreetId,OperatorId,SuperviserId,KioskTypeId,KioskStatusId,CoolerStatus,LockDoor,LockWindow,Electricity,CreatedBy,UpdatedBy,CreateDate,UpdateDate")] Kiosks kiosks)
         {
             if (ModelState.IsValid)
             {
@@ -77,12 +77,12 @@ namespace ColaProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.CreatedBy);
-            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName", kiosks.CreatedBy);
+            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "KioskStatusId", "StatusName", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
-            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
+            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "OperatorName", kiosks.OperatorId);
             ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName", kiosks.UpdatedBy);
             ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName");
             return View(kiosks);
         }
@@ -100,12 +100,12 @@ namespace ColaProject.Controllers
             {
                 return NotFound();
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.CreatedBy);
-            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName", kiosks.CreatedBy);
+            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "KioskStatusId", "StatusName", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
-            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
+            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "OperatorName", kiosks.OperatorId);
             ViewData["SuperviserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName", kiosks.UpdatedBy);
             ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName", kiosks.StreetId);
             return View(kiosks);
         }
@@ -142,12 +142,12 @@ namespace ColaProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.CreatedBy);
-            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "StatusId", "StatusCode", kiosks.KioskStatusId);
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName", kiosks.CreatedBy);
+            ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "KioskStatusId", "StatusName", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
-            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "Address", kiosks.OperatorId);
+            ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "OperatorName", kiosks.OperatorId);
             ViewData["SuperviserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", kiosks.UpdatedBy);
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName", kiosks.UpdatedBy);
             ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName");
             return View(kiosks);
         }

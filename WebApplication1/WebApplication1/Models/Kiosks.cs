@@ -40,12 +40,12 @@ namespace ColaProject.Models
         public string LockWindow { get; set; }
         [StringLength(30)]
         public string Electricity { get; set; }
-        public int CreatedBy { get; set; }
-        public int UpdatedBy { get; set; }
+        public int? CreatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
 
         [ForeignKey(nameof(CreatedBy))]
         [InverseProperty(nameof(Users.KiosksCreatedByNavigation))]

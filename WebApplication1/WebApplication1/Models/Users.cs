@@ -26,13 +26,10 @@ namespace ColaProject.Models
         public int UserId { get; set; }
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
-        [Required]
-        [StringLength(100)]
         public string UserName { get; set; }
         [Required]
         [StringLength(100)]
-        public string Password { get; set; }
+        public string Passworde { get; set; }
         public bool UserStatus { get; set; }
         [Column("RoleID")]
         public int RoleId { get; set; }

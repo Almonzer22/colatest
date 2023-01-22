@@ -17,8 +17,8 @@ namespace ColaProject.Models
         }
 
         [Key]
-        [Column("StatusID")]
-        public int StatusId { get; set; }
+        [Column("KioskStatusID")]
+        public int KioskStatusId { get; set; }
         [Required]
         [StringLength(20)]
         public string StatusCode { get; set; }

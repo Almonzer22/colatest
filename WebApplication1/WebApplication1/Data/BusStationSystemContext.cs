@@ -37,7 +37,8 @@ namespace ColaProject.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Data Source=APR-ICT-14;Database=BusStationSystem;Trusted_Connection=True;");
             }
         }
 
@@ -59,7 +60,6 @@ namespace ColaProject.Data
                 entity.HasOne(d => d.CreatedByNavigation)
                     .WithMany(p => p.KiosksCreatedByNavigation)
                     .HasForeignKey(d => d.CreatedBy)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Kiosks_Users");
 
                 entity.HasOne(d => d.KioskStatus)
@@ -94,13 +94,12 @@ namespace ColaProject.Data
                 entity.HasOne(d => d.UpdatedByNavigation)
                     .WithMany(p => p.KiosksUpdatedByNavigation)
                     .HasForeignKey(d => d.UpdatedBy)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Kiosks_Users1");
             });
 
             modelBuilder.Entity<KisokStatus>(entity =>
             {
-                entity.Property(e => e.StatusId).ValueGeneratedNever();
+                entity.Property(e => e.KioskStatusId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<Maintenance>(entity =>
