@@ -9,7 +9,7 @@
         <h2>Operator</h2>
 
         <p>
-            <a href="/Operator/Create" class="btn btn-success">
+            <a href="/Operators/Create" class="btn btn-success">
                 <i class="fa fa-plus"></i> Add New
             </a>
         </p>
@@ -23,7 +23,7 @@
 
                             <th>Operator Name</th>
                             <th>Address</th>
-                            <th>Status</th>
+                            <th>Is Active</th>
 
 
                             <th></th>
@@ -40,9 +40,15 @@
 
 
                                 <td>
-                                    <div class="btn-group btn-group-sm">
+                                    <div class=" container align-items-center">
                                         <a asp-action="Edit" asp-route-id="@item.OperatorId" class="btn btn-warning" title="Edit">
                                             <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.OperatorId" class="btn btn-primary" title="View">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.OperatorId" class="btn btn-danger" title="Remove">
+                                            <i class="fa fa-ban"></i>
                                         </a>
                                     </div>
                                 </td>

@@ -30,12 +30,12 @@ namespace ColaProject.Models
         [Required]
         [StringLength(50)]
         public string Disablity { get; set; }
-        public int CreatedBy { get; set; }
-        public int UpdatedBy { get; set; }
+        public int? CreatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
 
         [ForeignKey(nameof(CreatedBy))]
         [InverseProperty(nameof(Users.OperatorsCreatedByNavigation))]

@@ -49,8 +49,8 @@ namespace ColaProject.Controllers
         // GET: Operators/Create
         public IActionResult Create()
         {
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name");
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name");
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName");
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace ColaProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name", operators.CreatedBy);
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", operators.UpdatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName", operators.CreatedBy);
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName", operators.UpdatedBy);
             return View(operators);
         }
 
@@ -85,8 +85,8 @@ namespace ColaProject.Controllers
             {
                 return NotFound();
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name", operators.CreatedBy);
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", operators.UpdatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName", operators.CreatedBy);
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName", operators.UpdatedBy);
             return View(operators);
         }
 
@@ -122,8 +122,8 @@ namespace ColaProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "Name", operators.CreatedBy);
-            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "Name", operators.UpdatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.Users, "UserId", "UserName", operators.CreatedBy);
+            ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName", operators.UpdatedBy);
             return View(operators);
         }
 
