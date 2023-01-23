@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -25,6 +26,7 @@ namespace ColaProject.Models
         [Column("StreetID")]
         public int StreetId { get; set; }
         [Column("OperatorID")]
+        [DisplayName("Operator Name")]
         public int OperatorId { get; set; }
         [Column("SuperviserID")]
         public int SuperviserId { get; set; }

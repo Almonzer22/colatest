@@ -57,9 +57,9 @@
             <section class="content">
                 <div class="container-fluid">
                     <!-- SELECT2 EXAMPLE -->
-                    <div class="card card-default">
+                    <div class="card card-danger">
                         <div class="card-header">
-                            <h3 class="card-title">Kiosks Creation Form</h3>
+                            <h1 class=" card-title .font-weight-bold">Kiosks Creation Form</h1>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -77,7 +77,7 @@
                                     <div class="col-md-6">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
-                                            <label asp-for="KioskCode" class="control-label"> </label>
+                                            <label asp-for="KioskCode" class="control-label">Kiosk Code</label>
                                             <input asp-for="KioskCode" class="form-control" />
                                             <span asp-validation-for="KioskCode" class="text-danger"></span>
 
@@ -86,7 +86,7 @@
                                     </div>
 
                                     <div class="col">
-                                        <label asp-for="StreetId" class="control-label"></label>
+                                        <label asp-for="StreetId" class="control-label">Street Name</label>
                                         <select asp-for="StreetId" class="form-control" asp-items="ViewBag.StreetId"></select>
                                         <!--   <span asp-validation-for="Street" class="text-danger"></span> -->
                                     </div>
@@ -97,7 +97,7 @@
                                         <select asp-for="OperatorId" class="form-control" asp-items="ViewBag.OperatorId"></select>
                                     </div>
                                     <div class="col">
-                                        <label asp-for="SuperviserId" class="control-label"></label>
+                                        <label asp-for="SuperviserId" class="control-label">Supervisor</label>
                                         <select asp-for="SuperviserId" class="form-control" asp-items="ViewBag.SuperviserId"></select>
                                     </div>
 
@@ -111,7 +111,7 @@
                                 <div class="container align-content-lg-center">
                                     <div class="row align-content-center">
                                         <div class="col">
-                                            <input type="submit" value="Create" class="btn btn-primary btn-lg align-content-center" />
+                                            <input type="submit" value="Create" class="btn btn-primary btn-lg fa-align-center" />
                                         </div>
                                     </div>
                                 </div>

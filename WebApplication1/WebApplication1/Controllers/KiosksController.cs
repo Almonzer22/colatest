@@ -81,7 +81,7 @@ namespace ColaProject.Controllers
             ViewData["KioskStatusId"] = new SelectList(_context.KisokStatus, "KioskStatusId", "StatusName", kiosks.KioskStatusId);
             ViewData["KioskTypeId"] = new SelectList(_context.KioskTypes, "KioskTypeId", "KioskTypeName", kiosks.KioskTypeId);
             ViewData["OperatorId"] = new SelectList(_context.Operators, "OperatorId", "OperatorName", kiosks.OperatorId);
-            ViewData["SupervioserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
+            ViewData["SuperviserId"] = new SelectList(_context.Supervisers, "SuperviserId", "SuperviserName", kiosks.SuperviserId);
             ViewData["UpdatedBy"] = new SelectList(_context.Users, "UserId", "UserName", kiosks.UpdatedBy);
             ViewData["StreetId"] = new SelectList(_context.Streets, "StreetId", "StreetName");
             return View(kiosks);
